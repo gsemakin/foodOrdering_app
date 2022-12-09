@@ -1,1 +1,1 @@
-# foodOrdering_app
+# Restaurant food ordering app (React Project)
