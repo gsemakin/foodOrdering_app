@@ -1,0 +1,25 @@
+.root {
+    display: flex;
+    align-items: center;
+    padding: 0 30px;
+    box-sizing: border-box;
+
+    height: 64px;
+    background-color: black;
+    width: 100%;
+}
+
+.logo {
+    height: 130px;
+    width: 100%;
+    background-image: url("./imgs/logo.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: left;
+    background-color: #f9b514;
+}
+
+
+.link {
+    margin: 0 20px 0 auto;
+}
