@@ -1,48 +1,48 @@
 import { LoadingStatuses } from "../constants/loadingStatuses";
 //import { selectReviewEntities } from "../review/selectors";
-import { createSelector } from "reselect";
+//import { createSelector } from "reselect";
 
 export const selectRestaurantModule = (state) => state.restaurant;
 
 export const selectRestaurantById = (state, { restaurantId }) =>
-	selectRestaurantModule(state).entities[restaurantId];
+  selectRestaurantModule(state).entities[restaurantId];
 
 export const selectRestaurantNameById = (state, { restaurantId }) =>
-	selectRestaurantById(state, { restaurantId })?.name;
+  selectRestaurantById(state, { restaurantId })?.name;
 
 export const selectRestaurantIds = (state) => selectRestaurantModule(state).ids;
 
 export const selectRestaurantIdsFilteredByName = (
-	state,
-	{ restaurantName }
+  state,
+  { restaurantName }
 ) => {
-	return Object.values(selectRestaurantModule(state).entities)
-		.filter(
-			({ name }) =>
-				name.toLowerCase().indexOf(restaurantName.toLowerCase()) !== -1
-		)
-		.map(({ id }) => id);
+  return Object.values(selectRestaurantModule(state).entities)
+    .filter(
+      ({ name }) =>
+        name.toLowerCase().indexOf(restaurantName.toLowerCase()) !== -1
+    )
+    .map(({ id }) => id);
 };
 
 export const selectMenuByRestaurantId = (state, { restaurantId }) =>
-	selectRestaurantById(state, { restaurantId })?.menu;
+  selectRestaurantById(state, { restaurantId })?.menu;
 
 export const selectReviewsByRestaurantId = (state, { restaurantId }) =>
-	selectRestaurantById(state, { restaurantId })?.reviews;
+  selectRestaurantById(state, { restaurantId })?.reviews;
 
 export const selectRestaurantLoadingStatus = (state) =>
-	selectRestaurantModule(state).status;
+  selectRestaurantModule(state).status;
 
 export const selectIsRestaurantLoading = (state) =>
-	selectRestaurantModule(state).status === LoadingStatuses.inProgress;
+  selectRestaurantModule(state).status === LoadingStatuses.inProgress;
 
 export const selectRestaurantRating = (state, { restaurantId }) => {
-	const restaurantReviewIds = selectReviewsByRestaurantId(state, {
-		restaurantId,
-	});
-	//const reviewEntities = selectReviewEntities(state);
+  const restaurantReviewIds = selectReviewsByRestaurantId(state, {
+    restaurantId,
+  });
+  //const reviewEntities = selectReviewEntities(state);
 
-	/*	return Math.floor(
+  /*	return Math.floor(
 		restaurantReviewIds.reduce(
 			(ratingSum, reviewId) =>
 				ratingSum + reviewEntities[reviewId]?.rating || 0,

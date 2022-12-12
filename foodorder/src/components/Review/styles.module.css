@@ -1,0 +1,11 @@
+.root {
+    display: flex;
+}
+
+.title {
+    color: green;
+}
+
+.reviewText {
+    font-size: 18px;
+}

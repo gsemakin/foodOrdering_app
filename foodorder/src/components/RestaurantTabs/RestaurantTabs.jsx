@@ -8,6 +8,7 @@ import { useSearchParams } from "react-router-dom";
 
 export const RestaurantTabs = () => {
   const [search, setSearch] = useSearchParams();
+
   const restaurantIds = useSelector((state) =>
     selectRestaurantIdsFilteredByName(state, {
       restaurantName: search.get("restaurantName") || "",

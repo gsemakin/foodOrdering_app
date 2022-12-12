@@ -1,0 +1,13 @@
+.root {
+    display: flex;
+    flex-direction: column;
+}
+
+.dishList {
+    display: grid;
+    grid-row-gap: 20px;
+}
+
+.dish:not(:last-child) {
+    margin-bottom: 20px;
+}

@@ -1,0 +1,36 @@
+.root {
+    display: flex;
+    flex-direction: column;
+}
+
+.dish {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.ingredients {
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+}
+
+.ingredient:not(:last-child) {
+    margin-bottom: 5px;
+}
+
+.min {
+    color: #e18800;
+}
+
+.norm {
+    color: green;
+}
+
+.max {
+    color: red;
+}
+
+.dishName {
+    font-weight: 600;
+}
