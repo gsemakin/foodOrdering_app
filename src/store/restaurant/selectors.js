@@ -1,6 +1,6 @@
 import { LoadingStatuses } from "../constants/loadingStatuses";
-//import { selectReviewEntities } from "../review/selectors";
-//import { createSelector } from "reselect";
+import { selectReviewEntities } from "../review/selectors";
+import { createSelector } from "reselect";
 
 export const selectRestaurantModule = (state) => state.restaurant;
 
@@ -40,7 +40,7 @@ export const selectRestaurantRating = (state, { restaurantId }) => {
   const restaurantReviewIds = selectReviewsByRestaurantId(state, {
     restaurantId,
   });
-  //const reviewEntities = selectReviewEntities(state);
+  const reviewEntities = selectReviewEntities(state);
 
   /*	return Math.floor(
 		restaurantReviewIds.reduce(
@@ -51,15 +51,15 @@ export const selectRestaurantRating = (state, { restaurantId }) => {
 	);*/
 };
 
-/* export const selectRestaurantRatingMemoCreater = () =>
-	createSelector(
-		[selectReviewsByRestaurantId, selectReviewEntities],
-		(restaurantReviewIds, reviewEntities) =>
-			Math.floor(
-				restaurantReviewIds.reduce(
-					(ratingSum, reviewId) =>
-						ratingSum + reviewEntities[reviewId]?.rating || 0,
-					0
-				) / restaurantReviewIds.length
-			)
-	); */
+export const selectRestaurantRatingMemoCreater = () =>
+  createSelector(
+    [selectReviewsByRestaurantId, selectReviewEntities],
+    (restaurantReviewIds, reviewEntities) =>
+      Math.floor(
+        restaurantReviewIds.reduce(
+          (ratingSum, reviewId) =>
+            ratingSum + reviewEntities[reviewId]?.rating || 0,
+          0
+        ) / restaurantReviewIds.length
+      )
+  );

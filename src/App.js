@@ -1,18 +1,18 @@
-import "./App.css";
+import React, { useState } from "react";
+import { RestaurantsPage } from "./pages/RestaurantsPage/RestaurantsPage";
+import { Layout } from "./components/Layout/Layout";
+import { ThemeContext } from "./contexts/ThemeContext";
+import { store } from "./store";
 import { Provider } from "react-redux";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
-import { ThemeContext } from "./context/ThemeContext";
-import { useState } from "react";
-import { store } from "./store/";
 import { HomePage } from "./pages/HomePage/HomePage";
-import { Layout } from "./components/Layout/Layout";
-import { RestaurantsPage } from "./pages/RestaurantsPage/RestaurantsPage";
+import { CartPage } from "./pages/CartPage/CartPage";
 import { Restaurant } from "./components/Restaurant/Restaurant";
 import { Menu } from "./components/Menu/Menu";
 import { Reviews } from "./components/Reviews/Reviews";
 
-function App() {
-  const [theme] = useState("light");
+export const App = () => {
+  const [theme] = useState("light"); // 'light' | 'dark'
 
   return (
     <Provider store={store}>
@@ -23,16 +23,17 @@ function App() {
               <Route index element={<HomePage />} />
               <Route path="/restaurants" element={<RestaurantsPage />}>
                 <Route path=":restaurantId" element={<Restaurant />}>
+                  <Route index element={<Navigate to="menu" replace />} />
                   <Route path="menu" element={<Menu />} />
                   <Route path="reviews" element={<Reviews />} />
                 </Route>
               </Route>
+              <Route path="/cart" element={<CartPage />} />
+              <Route path="*" element={<Navigate to="/" replace />} />
             </Routes>
           </Layout>
         </ThemeContext.Provider>
       </BrowserRouter>
     </Provider>
   );
-}
-
-export default App;
+};

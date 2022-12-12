@@ -1,4 +1,3 @@
-import { Restaurant } from "../../components/Restaurant/Restaurant";
 import { useEffect, useState } from "react";
 
 import styles from "./styles.module.css";
@@ -31,10 +30,12 @@ export const RestaurantsPage = () => {
 
   return (
     <div className={styles.root}>
-      {<RestaurantTabs
-        activeRestaurantId={activeRestaurantId}
-        onRestaurantSelect={setActiveRestaurantId}
-      /> }
+      {
+        <RestaurantTabs
+          activeRestaurantId={activeRestaurantId}
+          onRestaurantSelect={setActiveRestaurantId}
+        />
+      }
       <Outlet />
     </div>
   );

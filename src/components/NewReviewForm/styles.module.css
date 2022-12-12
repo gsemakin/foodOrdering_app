@@ -1,0 +1,13 @@
+.root {
+    display: flex;
+    flex-direction: column;
+}
+
+.formControl {
+    display: flex;
+    flex-direction: column;
+}
+
+.formControl:not(:last-child) {
+    margin-bottom: 20px;
+}

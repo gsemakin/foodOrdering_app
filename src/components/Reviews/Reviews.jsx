@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { Review } from "../Review/Review";
-//import { NewReviewForm } from "../NewReviewForm/NewReviewForm";
+import { NewReviewForm } from "../NewReviewForm/NewReviewForm";
 
 import styles from "./styles.module.css";
 import { useDispatch, useSelector } from "react-redux";
@@ -42,7 +42,7 @@ export const Reviews = () => {
           <Review key={id} reviewId={id} />
         ))}
       </div>
-      {/** <NewReviewForm /> */}
+      <NewReviewForm />
     </div>
   );
 };

@@ -3,7 +3,7 @@ import { SIZES } from "../../constants/ui";
 import { useSelector } from "react-redux";
 import { selectRestaurantNameById } from "../../store/restaurant/selectors";
 import { NavLink, Outlet, useParams } from "react-router-dom";
-//import { RestaurantRating } from "../../containers/RestaurantRating/RestaurantRating";
+import { RestaurantRating } from "../../containers/RestaurantRating/RestaurantRating";
 
 export const Restaurant = () => {
   const { restaurantId } = useParams();
@@ -19,7 +19,7 @@ export const Restaurant = () => {
   return (
     <div>
       <h1>{restaurantName}</h1>
-      {/* <RestaurantRating size={SIZES.l} />*/}
+      <RestaurantRating size={SIZES.l} />
       <ul>
         <li>
           <NavLink to="menu">Menu</NavLink>
